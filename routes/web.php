@@ -15,5 +15,9 @@ Route::get('/', function () {
   return redirect('login');
 });
 
+Route::get('/judge/categories', function () {
+  return view('judge/categories');
+});
+
 Auth::routes();
 
