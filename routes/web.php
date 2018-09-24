@@ -15,6 +15,12 @@ Route::get('/', function () {
   return redirect('login');
 });
 
+
+// Delete this route after creating a controller for categories
+Route::get('/judge/categories', function () {
+  return view('judge/categories');
+});
+
 Auth::routes();
 
 
