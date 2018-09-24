@@ -17,3 +17,6 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::get('admin/category', function () {
+    return view('admin_category');
+})->name('admin_category');
