@@ -11,7 +11,7 @@
 
                     <div class="card-body">
 
-                        <form action="{{ $action }}" method="POST"> {{ csrf_field() }}
+                        <form action="{{ route('admin.categories.store') }}" method="post"> {{ csrf_field() }}
 
                             <div class="input-group mb-3">
                                     <div class="input-group-prepend">
