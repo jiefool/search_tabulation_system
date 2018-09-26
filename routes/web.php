@@ -30,5 +30,8 @@ Route::get('admin/categories', function () {
 
 Route::get('/admin/categories/new', function () {
   return view('/admin/categories/new');
-});
+})->name('admin.categories.new');
 
+Route::get('/admin/candidates/create', 'CandidatesController@create')->name('admin.candidates.create');
+
+Route::get('/admin/teams/create', 'TeamsController@create')->name('admin.teams.create');

@@ -38,7 +38,7 @@
                                         <thead style="font-weight: bold;color: black;font-size: 150%">
                                             <th>Category Name</th>
                                             <th>Criteria</th>
-                                            <th>&nbsp&nbsp&nbsp&nbsp&nbsp</th>
+                                            <th></th>
                                             
                                             
                                         </thead>
@@ -46,13 +46,13 @@
                                             <tr>
                                                 <td>Swimwear</td>
                                                 <td>- fit <br>- vitals</td>
-                                                <td>&nbsp&nbsp&nbsp&nbsp&nbsp</td>
+                                                <td></td>
                                                 
                                             </tr>
                                             <tr>
                                                 <td></td>
                                                 <td></td>
-                                                <td><button class = 'btn btn-info'>Add New Category</button></td>
+                                            <td><a href="{{ route('admin.categories.new') }}" class = 'btn btn-info'>Add New Category</a></td>
                                                 
                                             </tr>
                                             
