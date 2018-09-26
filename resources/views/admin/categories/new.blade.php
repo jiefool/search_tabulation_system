@@ -5,23 +5,26 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6">
+
                 <div class="card">
                     <div class="card-header"><b>ADD CATEGORY</b></div>
 
                     <div class="card-body">
 
+                        <form action="{{ $action }}" method="POST"> {{ csrf_field() }}
+
                             <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                       <span class="input-group-text" id="basic-addon1"><b>NAME</b></span>
                                     </div>
-                                    <input type="text" class="form-control" placeholder="ex. Swim Wear" aria-label="swimwear" aria-describedby="basic-addon1">
+                                    <input type="text" class="form-control" placeholder="ex. Swim Wear" aria-label="swimwear" aria-describedby="basic-addon1" name="name"/>
                             </div>
 
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                   <span class="input-group-text" id="basic-addon1"><b>WEIGHT</b></span>
                                 </div>
-                                <select class="custom-select">
+                                <select class="custom-select" name="weight"/>>
                                     <option selected></option>
                                     <option value="5">5%</option>
                                     <option value="10">10%</option>
@@ -53,7 +56,7 @@
                                         </button>
                                     </div>
                             </div>
-                        
+                        </form>
                     </div>
                 </div>
             </div>
