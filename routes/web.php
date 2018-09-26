@@ -30,5 +30,5 @@ Route::get('admin/categories', function () {
 
 Route::get('/admin/categories/new', function () {
   return view('/admin/categories/new');
-});
+})->name('admin.categories.new');
 
