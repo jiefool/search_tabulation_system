@@ -52,7 +52,7 @@
                                             <tr>
                                                 <td></td>
                                                 <td></td>
-                                            <td><a href="{{ route('admin.categories.new') }}" class = 'btn btn-info'>Add New Category</a></td>
+                                            <td><a href="{{ route('admin.categories.create') }}" class = 'btn btn-info'>Add New Category</a></td>
                                                 
                                             </tr>
                                             

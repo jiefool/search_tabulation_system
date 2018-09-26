@@ -24,13 +24,10 @@ Route::get('/judge/categories', function () {
 Auth::routes();
 
 
-Route::get('admin/categories', function () {
-    return view('admin.categories.list');
-})->name('admin.categories');
+Route::get('admin/categories','CategoriesController@index')->name('admin.categories.index');
 
-Route::get('/admin/categories/new', function () {
-  return view('/admin/categories/new');
-})->name('admin.categories.new');
+Route::get('/admin/categories/create', 'CategoriesController@create')->name('admin.categories.create');
+Route::post('/admin/categories/store', 'CategoriesController@store')->name('admin.categories.store');
 
 Route::get('/admin/candidates/create', 'CandidatesController@create')->name('admin.candidates.create');
 
