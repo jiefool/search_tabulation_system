@@ -11,32 +11,20 @@ class UsersSeeder extends Seeder
      */
     public function run()
     {
-        // Test Data for Development
+
+        // judges - test data for development
         DB::table('users')->insert([
-            [
-
-                // admin account
-                // username: admin
-                // password: admin123
-
-                'name'         => str_random(10),
-                'username'     => 'admin',
-                'email'        => str_random(10).'@gmail.com',
-                'is_tabulator' => '1',
-                'is_judge'     => '0',
-                'password'     => bcrypt('admin123')
-            ],
             [
 
                 // judge1 account
                 // username: judge1
                 // password: judge1
 
-                'name'         => str_random(10),
+                'name'         => 'Harry Potter',
                 'username'     => 'judge1',
-                'email'        => str_random(10).'@gmail.com',
-                'is_tabulator' => '0',
-                'is_judge'     => '1',
+                'email'        => 'harrypotter'.'@gmail.com',
+                'is_tabulator' => false,
+                'is_judge'     => true,
                 'password'     => bcrypt('judge1')
             ],
             [
@@ -45,11 +33,11 @@ class UsersSeeder extends Seeder
                 // username: judge2
                 // password: judge2
 
-                'name'         => str_random(10),
+                'name'         => 'Ron Weasley',
                 'username'     => 'judge2',
-                'email'        => str_random(10).'@gmail.com',
-                'is_tabulator' => '0',
-                'is_judge'     => '1',
+                'email'        => 'ronweasley'.'@gmail.com',
+                'is_tabulator' => false,
+                'is_judge'     => true,
                 'password'     => bcrypt('judge2')
             ],
             [
@@ -58,11 +46,11 @@ class UsersSeeder extends Seeder
                 // username: judge3
                 // password: judge3
                 
-                'name'         => str_random(10),
+                'name'         => 'Hermione Granger',
                 'username'     => 'judge3',
-                'email'        => str_random(10).'@gmail.com',
-                'is_tabulator' => '0',
-                'is_judge'     => '1',
+                'email'        => 'hermionegraner'.'@gmail.com',
+                'is_tabulator' => false,
+                'is_judge'     => true,
                 'password'     => bcrypt('judge3')
             ]
         ]);
