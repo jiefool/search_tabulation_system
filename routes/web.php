@@ -17,6 +17,7 @@ Route::get('/', function () {
 
 
 // Delete this route after creating a controller for categories
+
 Route::get('/judge/categories', function () {
   return view('judge/categories');
 });
@@ -32,3 +33,7 @@ Route::post('/admin/categories/store', 'CategoriesController@store')->name('admi
 Route::get('/admin/candidates/create', 'CandidatesController@create')->name('admin.candidates.create');
 
 Route::get('/admin/teams/create', 'TeamsController@create')->name('admin.teams.create');
+
+Route::get('/admin/criteria/new', function () {
+  return view('/admin/criteria/new');
+});
