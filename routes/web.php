@@ -28,7 +28,7 @@ Auth::routes();
 Route::get('admin/categories','CategoriesController@index')->name('admin.categories.index');
 
 Route::get('/admin/categories/create', 'CategoriesController@create')->name('admin.categories.create');
-Route::get('/admin/categories/{id}/show', 'CategoriesController@create')->name('admin.categories.id.show');
+Route::get('/admin/categories/{id}/show', 'CategoriesController@show')->name('admin.categories.id.show');
 Route::post('/admin/categories/store', 'CategoriesController@store')->name('admin.categories.store');
 
 Route::get('/admin/candidates/create', 'CandidatesController@create')->name('admin.candidates.create');

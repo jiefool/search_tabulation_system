@@ -57,7 +57,7 @@
                                                     </ul>
                                                 </td>
                                                 <td>
-                                                    <a href="{{ route('admin.categories.id.show') }}" class = 'btn btn-info'>
+                                                    <a href="{{ route('admin.categories.id.show', array('id'=>$category->id)) }}" class = 'btn btn-info'>
                                                         Show Category
                                                     </a>
                                                 </td>
