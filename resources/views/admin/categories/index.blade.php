@@ -43,12 +43,20 @@
                                             
                                         </thead>
                                         <tbody>
+                                            @foreach($categories as $category)
                                             <tr>
-                                                <td>Swimwear</td>
-                                                <td>- fit <br>- vitals</td>
-                                                <td></td>
-                                                
+                                                <td>{{$category->name}}</td>
+                                                <td>{{$category->weight}}</td>
+                                                <td>
+                                                    <ul>
+                                                        @foreach($category->criteria as $critereon)
+                                                            <li>{{$critereon->name}} - {{$critereon->weight}}</li>
+                                                        @endforeach
+                                                    </ul>
+                                                </td>
+                                        
                                             </tr>
+                                            @endforeach
                                             <tr>
                                                 <td></td>
                                                 <td></td>
