@@ -6,5 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
 {
+    public function criteria(){
+        return $this->hasMany('App\Critereon');
+    }
+
     //
 }
