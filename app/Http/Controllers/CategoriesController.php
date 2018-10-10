@@ -52,7 +52,8 @@ class CategoriesController extends Controller
      */
     public function show($id)
     {
-        //
+        $category = Category::find($id);
+        return view('admin.categories.show', array('category'=>$category));
     }
 
     /**

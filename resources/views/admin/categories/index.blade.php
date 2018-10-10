@@ -37,8 +37,9 @@
                                     <table class="table table-bordered" id="dataTable">
                                         <thead style="font-weight: bold;color: black;font-size: 150%">
                                             <th>Category Name</th>
+                                            <th>Weight</th>
                                             <th>Criteria</th>
-                                            <th></th>
+                                            <th>Action</th>
                                             
                                             
                                         </thead>
@@ -47,6 +48,7 @@
                                             <tr>
                                                 <td>{{$category->name}}</td>
                                                 <td>{{$category->weight}}</td>
+
                                                 <td>
                                                     <ul>
                                                         @foreach($category->criteria as $critereon)
@@ -54,10 +56,17 @@
                                                         @endforeach
                                                     </ul>
                                                 </td>
+                                                <td>
+                                                    <a href="{{ route('admin.categories.id.show', array('id'=>$category->id)) }}" class = 'btn btn-info'>
+                                                        Show Category
+                                                    </a>
+                                                </td>
+
                                         
                                             </tr>
                                             @endforeach
                                             <tr>
+                                                <td></td>
                                                 <td></td>
                                                 <td></td>
                                             <td><a href="{{ route('admin.categories.create') }}" class = 'btn btn-info'>Add New Category</a></td>
