@@ -28,6 +28,7 @@ Auth::routes();
 Route::get('admin/categories','CategoriesController@index')->name('admin.categories.index');
 
 Route::get('/admin/categories/create', 'CategoriesController@create')->name('admin.categories.create');
+Route::get('/admin/categories/{id}/show', 'CategoriesController@show')->name('admin.categories.id.show');
 Route::post('/admin/categories/store', 'CategoriesController@store')->name('admin.categories.store');
 
 Route::get('/admin/candidates/create', 'CandidatesController@create')->name('admin.candidates.create');
@@ -37,3 +38,4 @@ Route::get('/admin/teams/create', 'TeamsController@create')->name('admin.teams.c
 Route::get('/admin/criteria/new', function () {
   return view('/admin/criteria/new');
 });
+
