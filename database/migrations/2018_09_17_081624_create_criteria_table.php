@@ -17,6 +17,7 @@ class CreateCriteriaTable extends Migration
             $table->unsignedInteger('category_id');
             $table->increments('id');
             $table->string('name');
+            $table->integer('weight');
             $table->foreign('category_id')->references('id')->on('categories');
             $table->timestamps();
         });

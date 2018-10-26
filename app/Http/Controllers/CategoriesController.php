@@ -25,7 +25,12 @@ class CategoriesController extends Controller
      */
     public function create()
     {
-        return view('admin.categories.create');
+        $params = array(
+            'form_action' => route('admin.categories.store'),
+            'action' => 'Add',
+            'category' => new Category()
+        );
+        return view('admin.categories.create', array('params' => $params));
     }
 
     /**
@@ -64,7 +69,14 @@ class CategoriesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $category = Category::find($id);
+        $params = array(
+            'form_action' => route('admin.categories.id.update', array('id'=>$category->id)),
+            'action' => 'Edit',
+            'category' => $category
+        );
+        $category = Category::find($id);
+        return view('admin.categories.edit', array('params'=>$params));
     }
 
     /**
@@ -76,7 +88,12 @@ class CategoriesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $category = Category::find($id);
+        $category->name = $request->name;
+        $category->weight = $request->weight;
+        $category->save();
+
+        return redirect()->route('admin.categories.index');
     }
 
     /**
