@@ -30,6 +30,7 @@
 
                             <div class="form-group row mb-0">
                                 <div class="col-md-8 offset-md-4">
+                                    <a class="btn btn-success" href="{{ route('admin.categories.id.show', array('id'=>$critereon->category->id)) }}">Back</a>
                                     <button type="submit" class="btn btn-primary">
                                        {{$action}} Critereon
                                     </button>

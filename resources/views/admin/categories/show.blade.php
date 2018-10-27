@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
-Category name: {{$category->name}}
-Category weight: {{$category->weight}}
+Category name: <b>{{$category->name}}</b>
+Category weight: <b>{{$category->weight}}</b>
 <table class="table">
   <thead>
     <tr>
@@ -23,6 +23,11 @@ Category weight: {{$category->weight}}
         <td>{{ $critereon->weight }}</td>
         <td>
           <a href="{{ route('admin.categories.cid.criteria.id.edit', array('cid'=>$category->id, 'id' => $critereon->id)) }}">Edit</a>
+          |
+          <a href="javascript: $('#critereon-{{$critereon->id}}').submit()">Delete</a>
+          <form id="critereon-{{$critereon->id}}" method="post" action="{{ route('admin.categories.cid.criteria.id.delete', array('cid'=>$category->id, 'id'=>$critereon->id)) }}">
+            {{ csrf_field() }}
+          </form>
         </td>
       </tr>
     @endforeach

@@ -49,7 +49,7 @@ class LoginController extends Controller
              return '/admin/categories';
         }
        else {
-         return '/judge/categories';
+         return '/judging/categories';
        }
     }
 }
