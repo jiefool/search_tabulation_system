@@ -5,6 +5,7 @@
   <table class="table">
     <thead>
       <tr>
+        <td>Name</td>
         <td>Username</td>
         <td>Email</td>
         <td>Password</td>
@@ -14,6 +15,7 @@
     <tbody>
       @foreach($judges as $judge)
       <tr>
+        <td>{{$judge->name}}</td>
         <td>{{$judge->username}}</td>
         <td>{{$judge->email}}</td>
         <td>{{$judge->passcode}}</td>
@@ -28,7 +30,9 @@
       </tr>
       @endforeach
       <tr>
-        <td><a href="{{ route('admin.judges.create') }}" class="btn btn-primary">Add Judge</td>
+        <td colspan="5">
+          <a href="{{ route('admin.judges.create') }}" class="btn btn-success btn-block">Add Judge</a>
+        </td>
       </tr>
     </tbody>
   </table>

@@ -47,6 +47,8 @@ class JudgesController extends Controller
 
   public function update(Request $request, $id){
     $judge = User::find($id);
+    $judge->name = $request->name;
+    $judge->username = $request->username;
     $judge->password = bcrypt($request->passcode);
     $judge->passcode = $request->passcode;
     $judge->save();

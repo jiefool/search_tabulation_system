@@ -19,7 +19,8 @@ Route::get('/', function () {
 // Delete this route after creating a controller for categories
 
 Route::get('judging/categories','JudgingController@index')->name('judging.categories.index');
-Route::get('judging/categories/{id}/candidates','JudgingController@judgingCategory')->name('judging.categories.id.candidates');
+Route::get('judging/categories/{id}/candidates','JudgingController@judging_category')->name('judging.categories.id.candidates');
+Route::post('judging/candidate/{candidate_id}/category/{category_id}','JudgingController@judging_candidate_category')->name('judging.candidate.category');
 
 
 Auth::routes();
@@ -30,12 +31,14 @@ Route::post('admin/categories/store', 'CategoriesController@store')->name('admin
 Route::get('admin/categories/create', 'CategoriesController@create')->name('admin.categories.create');
 Route::get('admin/categories/{id}/show', 'CategoriesController@show')->name('admin.categories.id.show');
 Route::get('admin/categories/{id}/edit', 'CategoriesController@edit')->name('admin.categories.id.edit');
+Route::post('admin/categories/{id}/delete', 'CategoriesController@delete')->name('admin.categories.id.delete');
 Route::post('admin/categories/{id}/update', 'CategoriesController@update')->name('admin.categories.id.update');
 Route::get('admin/categories/{id}/criteria/create', 'CriteriaController@create')->name('admin.categories.id.criteria.create');
 Route::get('admin/categories/{cid}/criteria/{id}/edit', 'CriteriaController@edit')->name('admin.categories.cid.criteria.id.edit');
 Route::post('admin/categories/{id}/criteria/store', 'CriteriaController@store')->name('admin.categories.cid.criteria.store');
 Route::post('admin/categories/{cid}/criteria/{id}/update', 'CriteriaController@update')->name('admin.categories.cid.criteria.id.update');
 Route::post('admin/categories/{cid}/criteria/{id}/delete', 'CriteriaController@delete')->name('admin.categories.cid.criteria.id.delete');
+Route::get('admin/tabulation', 'TabulationController@index')->name('admin.tabulation.index');
 
 
 Route::get('admin/candidates','CandidatesController@index')->name('admin.candidates.index');

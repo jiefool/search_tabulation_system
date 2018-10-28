@@ -4,13 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Category;
+use Auth;
+use App\User;
 
 class CategoriesController extends Controller
 {
-
-    public function __construct(){
-        
-    }
     /**
      * Display a listing of the resource.
      *
@@ -76,7 +74,7 @@ class CategoriesController extends Controller
         $category = Category::find($id);
         $params = array(
             'form_action' => route('admin.categories.id.update', array('id'=>$category->id)),
-            'action' => 'Edit',
+            'action' => 'Update',
             'category' => $category
         );
         $category = Category::find($id);
@@ -106,8 +104,10 @@ class CategoriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function delete($id)
     {
-        //
+        $category = Category::find($id);
+        $category->delete();
+        return redirect()->back();
     }
 }

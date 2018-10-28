@@ -46,10 +46,9 @@ class LoginController extends Controller
        
 
         if(Auth::user()->is_tabulator){
-             return '/admin/categories';
+            return route('admin.categories.index');
+        }else{
+            return route('judging.categories.index');
         }
-       else {
-         return '/judging/categories';
-       }
     }
 }

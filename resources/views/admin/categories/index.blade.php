@@ -14,7 +14,7 @@
                 <div class="card-content table-responsive">
                     <table class="table table-bordered" id="dataTable">
                         <thead style="font-weight: bold;color: black;font-size: 150%">
-                            <th>Category Name</th>
+                            <th>Category</th>
                             <th>Weight</th>
                             <th>Criteria</th>
                             <th>Action</th>
@@ -23,33 +23,39 @@
                             @foreach($categories as $category)
                             <tr>
                                 <td>{{$category->name}}</td>
-                                <td>{{$category->weight}}</td>
+                                <td>{{$category->weight}}%</td>
 
                                 <td>
                                     <ul>
                                         @foreach($category->criteria as $critereon)
-                                            <li>{{$critereon->name}} - {{$critereon->weight}}</li>
+                                            <li>{{$critereon->name}} ({{$critereon->weight}}%)</li>
                                         @endforeach
                                     </ul>
                                 </td>
                                 <td>
-                                    <a href="{{ route('admin.categories.id.show', array('id'=>$category->id)) }}" class = 'btn btn-info'>
+                                    <a href="{{ route('admin.categories.id.show', array('id'=>$category->id)) }}" class = 'btn btn-primary'>
                                         Show
                                     </a>
-                                    <a href="{{ route('admin.categories.id.edit', array('id'=>$category->id)) }}" class = 'btn btn-info'>
+                                    <a href="{{ route('admin.categories.id.edit', array('id'=>$category->id)) }}" class = 'btn btn-warning'>
                                         Edit
                                     </a>
+                                    <a href="javascript: $('#category-{{$category->id}}').submit()" class = 'btn btn-danger'>
+                                        Delete
+                                    </a>
+                                    <form id="category-{{$category->id}}" action="{{ route('admin.categories.id.delete', array('id'=>$category->id)) }}" method="post">
+                                        {{csrf_field()}}
+                                    </form>
                                 </td>
 
                         
                             </tr>
                             @endforeach
                             <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            <td><a href="{{ route('admin.categories.create') }}" class = 'btn btn-info'>Add New Category</a></td>
-                                
+                                <td colspan="4">
+                                    <a href="{{ route('admin.categories.create') }}" class = 'btn btn-success btn-block'>
+                                        Add New Category
+                                    </a>
+                                </td>
                             </tr>
                             
                         </tbody>

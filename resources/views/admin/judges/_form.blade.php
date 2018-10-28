@@ -9,7 +9,7 @@
 
                         <form action="{{ $form_action }}" method="post" enctype="multipart/form-data">
                             {{ csrf_field() }}
-                             <div class="input-group mb-3">
+                            <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                   <span class="input-group-text" id="basic-addon1"><b>Name</b></span>
                                 </div>
@@ -31,7 +31,7 @@
 
                             <div class="form-group row mb-0">
                                     <div class="col-md-8 offset-md-4">
-                                        <a href="{{ route('admin.candidates.index') }}" class="btn btn-primary">Back</a>
+                                        <a href="{{ route('admin.judges.index') }}" class="btn btn-primary">Back</a>
                                         <button type="submit" class="btn btn-primary">
                                            {{$action}} Judge
                                         </button>

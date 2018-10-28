@@ -1,7 +1,8 @@
 @extends('layouts.app')
 @section('content')
-Category name: <b>{{$category->name}}</b>
-Category weight: <b>{{$category->weight}}</b>
+<h3>
+  Category: <b>{{$category->name}} ({{$category->weight}}%)</b>
+</h3>
 <table class="table">
   <thead>
     <tr>
@@ -20,7 +21,7 @@ Category weight: <b>{{$category->weight}}</b>
     @foreach($category->criteria as $critereon)
       <tr>
         <td>{{ $critereon->name }}</td>
-        <td>{{ $critereon->weight }}</td>
+        <td>{{ $critereon->weight }} %</td>
         <td>
           <a href="{{ route('admin.categories.cid.criteria.id.edit', array('cid'=>$category->id, 'id' => $critereon->id)) }}">Edit</a>
           |
@@ -33,7 +34,7 @@ Category weight: <b>{{$category->weight}}</b>
     @endforeach
     <tr>
       <td colspan="3">
-        <a class="btn btn-primary" href="{{ route('admin.categories.id.criteria.create', array('id'=>$category->id)) }}">Add Criteria</a>
+        <a class="btn btn-success btn-block" href="{{ route('admin.categories.id.criteria.create', array('id'=>$category->id)) }}">Add Criteria</a>
       </td>
     </tr>
   </tbody>

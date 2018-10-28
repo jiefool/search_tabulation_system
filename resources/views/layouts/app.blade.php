@@ -46,6 +46,13 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('admin.judges.index') }}">Judges</a>
                                 </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('admin.tabulation.index') }}">Tabulation</a>
+                                </li>
+                            @else
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('judging.categories.index') }}">Select Categories</a>
+                                </li>
                             @endif
                         @endguest
                     </ul>
