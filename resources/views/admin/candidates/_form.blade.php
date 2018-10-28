@@ -11,6 +11,12 @@
                             {{ csrf_field() }}
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
+                                  <span class="input-group-text" id="basic-addon1"><b>Candidate Number</b></span>
+                                </div>
+                                <input type="text" class="form-control" placeholder="Juan De La" aria-label="swimwear" aria-describedby="basic-addon1" name="candidate_number" value="{{$candidate->candidate_number}}">
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
                                   <span class="input-group-text" id="basic-addon1"><b>First Name</b></span>
                                 </div>
                                 <input type="text" class="form-control" placeholder="Juan De La" aria-label="swimwear" aria-describedby="basic-addon1" name="first_name" value="{{$candidate->first_name}}">

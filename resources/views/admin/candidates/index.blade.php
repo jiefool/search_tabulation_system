@@ -14,7 +14,7 @@
                 <div class="col-md-3">
                     <div class="card">
                         <div class="card-header" data-background-color="green">
-                            <b>{{$candidate->full_name()}}</b>
+                            <b>{{$candidate->candidate_number}}. {{$candidate->full_name()}}</b>
                         </div>
                         <div class="card-body">
                             <img src="{{asset('images')}}/{{$candidate->image_url}}" width="100%" />

@@ -7,9 +7,8 @@
     @foreach($categories as $category)
     <div class="card col-md-3" style="padding:10px;">
       <div class="card-body">
-        <h5 class="card-title">{{$category->name}}</h5>
+        <h5 class="card-title">{{$category->name}} ({{$category->weight}}%)</h5>
         <p class="card-text">{{$category->description}}</p>
-        <p class="card-text">weight: {{$category->weight}}</p>
         <h4>Criteria</h4>
         <div class="list-group">
           @foreach($category->criteria as $critereon)

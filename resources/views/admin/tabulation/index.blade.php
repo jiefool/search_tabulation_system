@@ -6,11 +6,17 @@
         <td style="padding:0">
           <table class="table" style="padding:0;margin:0">
               <tr>
-                <td>Candidates/Judges</td>
+                <td>
+                  <strong>
+                    Candidates/Judges
+                  </strong>
+                </td>
               </tr>
               <tr>
                 <td>
-                  Categories
+                  <strong>
+                    Categories
+                  </strong>
                 </td>
               </tr>
             </table>
@@ -19,38 +25,53 @@
           <td style="padding:0">
             <table class="table" style="padding:0;margin:0">
               <tr>
-                <td colspan="{{count($categories)}}">{{$judge->name}}</td>
+                <td colspan="{{count($categories)}}">
+                  <strong>
+                    {{$judge->name}}</td>
+                  </strong>
               </tr>
               <tr>
                 @foreach($categories as $category)
-                  <td>
-                    {{$category->name}}
+                  <td style="min-width:{{100/count($categories)+1}}%;max-width:{{100/count($categories)+1}}%;width:{{100/count($categories)+1}}%">
+                    <strong>
+                      {{$category->name}} ({{$category->weight}}%)
+                    </strong>
                   </td>
                 @endforeach
-                <td>
-                  Total Average
+                <td style="min-width:{{100/count($categories)+1}}%;max-width:{{100/count($categories)+1}}%;width:{{100/count($categories)+1}}%">
+                  <strong>
+                    Total
+                  </strong>
                 </td>
               </tr>
             </table>
           </td>
         @endforeach
-        <td>Grand Total Average</td>
+        <td>
+          <strong>
+            Total Average
+          </strong>
+        </td>
       </tr>
     </thead>
     <tbody>
       @foreach($candidates as $candidate)
         <tr>
-          <td>{{$candidate->full_name()}}</td>
+          <td>
+            <strong>
+              {{$candidate->full_name()}}
+            <strong>
+          </td>
           @foreach($judges as $judge)
             <td style="padding:0">
-              <table class="table" style="padding:0;margin:0">
+              <table class="table" style="padding:0;margin:0;">
                 <tr>
                   @foreach($categories as $category)
-                  <td>
+                  <td style="min-width:{{100/count($categories)+1}}%;max-width:{{100/count($categories)+1}}%;width:{{100/count($categories)+1}}%">
                     {{$cjc_score[$candidate->id][$judge->id][$category->id]}}
                   </td>
                   @endforeach
-                  <td>
+                  <td style="min-width:{{100/count($categories)+1}}%;max-width:{{100/count($categories)+1}}%;width:{{100/count($categories)+1}}%">
                     <strong>
                       {{$cjc_total[$candidate->id][$judge->id]}}
                     </strong>

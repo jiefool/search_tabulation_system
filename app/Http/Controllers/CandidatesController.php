@@ -4,11 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Candidate;
+use App\CategoryJudgeCriteriaWeight;
 
 class CandidatesController extends Controller
 {
     public function index(){
-      $candidates = Candidate::all();
+      $candidates = Candidate::orderBy('candidate_number', 'asc')->get();
       return view('admin.candidates.index', array('candidates'=>$candidates));
     }
 
@@ -29,6 +30,7 @@ class CandidatesController extends Controller
       $destination_path = public_path('/images');
       $image->move($destination_path, $image_name);
 
+      $candidate->candidate_number = $request->candidate_number;
       $candidate->first_name = $request->first_name;
       $candidate->last_name = $request->last_name;
       $candidate->middle_name = $request->middle_name;
@@ -63,6 +65,7 @@ class CandidatesController extends Controller
         $candidate->image_url = $image_name;  
       }
 
+      $candidate->candidate_number = $request->candidate_number;
       $candidate->first_name = $request->first_name;
       $candidate->last_name = $request->last_name;
       $candidate->middle_name = $request->middle_name;
@@ -78,6 +81,10 @@ class CandidatesController extends Controller
 
     public function delete($id){
       $candidate = Candidate::find($id);
+      $cjcws = CategoryJudgeCriteriaWeight::where('candidate_id', '=', $candidate->id)->get();
+      foreach($cjcws as $cjcw){
+         $cjcw->delete();
+      }
       $candidate->delete();
       return redirect()->route('admin.candidates.index');
     }

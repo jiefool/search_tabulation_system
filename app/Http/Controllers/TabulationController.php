@@ -21,7 +21,7 @@ class TabulationController extends Controller
     foreach($candidates as $candidate){
       foreach($judges as $judge){
         foreach($categories as $category){
-          $cjc_score[$candidate->id][$judge->id][$category->id] = $this->get_category_total_score($candidate->id, $judge->id, $category->id);
+          $cjc_score[$candidate->id][$judge->id][$category->id] = $this->get_category_total_score($candidate->id, $judge->id, $category->id) * ($category->weight/100);
         }
       }
     }
@@ -29,18 +29,14 @@ class TabulationController extends Controller
     $cjc_total = array();
     foreach($candidates as $candidate){
       foreach($judges as $judge){
-        foreach($categories as $category){
-          $cjc_total[$candidate->id][$judge->id] = round($this->get_average($cjc_score[$candidate->id][$judge->id]),2);
-        }
+        $cjc_total[$candidate->id][$judge->id] = $this->get_total($cjc_score[$candidate->id][$judge->id]);
       }
     }
 
 
     $cjc_total_average = array();
     foreach($candidates as $candidate){
-      foreach($judges as $judge){
-        $cjc_total_average[$candidate->id] = round($this->get_average($cjc_total[$candidate->id]),2);
-      }
+      $cjc_total_average[$candidate->id] = round($this->get_average($cjc_total[$candidate->id]),2);
     }
 
     return view('admin.tabulation.index', 
@@ -63,6 +59,15 @@ class TabulationController extends Controller
     $score = 0;
     foreach($cjc as $c){
       $score += $c->weight;
+    }
+
+    return $score;
+  }
+
+  public function get_total($category_scores){
+    $score = 0;
+    foreach($category_scores as $c){
+      $score += $c;
     }
 
     return $score;
