@@ -32,7 +32,7 @@
                         <div class="input-group-prepend">
                           <span class="input-group-text" id="basic-addon1"><b>{{$critereon->name}}({{$critereon->weight}}%):</b></span>
                         </div>
-                        <input type="text" class="form-control" placeholder="0" aria-label="" aria-describedby="basic-addon1" name="weight_{{$critereon->id}}" value="{{$cjcw[$candidate->id][Auth::user()->id][$category->id][$critereon->id]}}">
+                        <input type="number" pattern="[0-9]*" inputmode="numeric" max="{{$critereon->weight}}" class="form-control critereon-input" placeholder="0" aria-label="" aria-describedby="basic-addon1" name="weight_{{$critereon->id}}" value="{{$cjcw[$candidate->id][Auth::user()->id][$category->id][$critereon->id]}}">
                     </div>
                   </div>
                 @endforeach
@@ -48,5 +48,11 @@
     </div>
   @endforeach
 </div>
+</div>
+
+<div id="dialog" title="Warning" style="width:90%">
+  <p>
+    Please enter less than or equal to <span id="critereon-max">0</span>%.
+  </p>
 </div>
 @endsection

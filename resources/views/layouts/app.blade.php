@@ -10,15 +10,30 @@
 
     <title>{{ config('app.name', 'Search Tabulation') }}</title>
 
+    
+
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/app.js') }}"></script>
+
+
+    <!-- jQuery libs -->
+    <script src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
+    <script src="{{ asset('jquery-ui-1.12.1/jquery-ui.js') }}"></script>
+
+    <link href="{{ asset('jquery-ui-1.12.1/jquery-ui.css') }}" rel="stylesheet">
+    <link href="{{ asset('jquery-ui-1.12.1/jquery-ui.structure.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('jquery-ui-1.12.1/jquery-ui.theme.min.css') }}" rel="stylesheet">
+
+    <script src="{{ asset('js/custom.js') }}"></script>
+    
 
     <!-- Fonts -->
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
+    <!-- <link rel="dns-prefetch" href="https://fonts.gstatic.com"> -->
+    <!-- <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css"> -->
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
@@ -92,5 +107,6 @@
             @yield('content')
         </main>
     </div>
+</div>
 </body>
 </html>

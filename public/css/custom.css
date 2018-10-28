@@ -1,0 +1,9 @@
+.ui-dialog.critereon-dialog {
+  padding: 0;
+  font-size: 1.1em;
+}
+
+.ui-dialog.critereon-dialog .ui-dialog-titlebar{
+  background-color: #e3342f;
+  color:white;
+}
