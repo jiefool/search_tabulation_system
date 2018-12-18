@@ -12,9 +12,16 @@
 */
 
 Route::get('/', function () {
-  return redirect('login');
+  if(Auth::check()){
+    if(Auth::user()->is_judge){
+      return redirect()->route('judging.categories.index');
+    }else{
+      return redirect()->route('admin.categories.index');
+    }
+  }else{
+    return redirect()->route('login');
+  }
 });
-
 
 // Delete this route after creating a controller for categories
 
@@ -56,14 +63,4 @@ Route::post('admin/judges/{id}/update','JudgesController@update')->name('admin.j
 Route::get('admin/judges/create','JudgesController@create')->name('admin.judges.create');
 Route::post('admin/judges/store','JudgesController@store')->name('admin.judges.store');
 
-
-
-
-
-
-Route::get('/admin/teams/create', 'TeamsController@create')->name('admin.teams.create');
-
-Route::get('/admin/criteria/new', function () {
-  return view('/admin/criteria/new');
-});
 

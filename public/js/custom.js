@@ -17,10 +17,15 @@
   });
 
   $(".critereon-input").keyup(function(){
-    var max_value = $(this).attr('max');
-    if (max_value < $(this).val()){
+    var max_value = parseInt($(this).attr('max'));
+    var this_value = parseInt($(this).val());
+    if (this_value > max_value){
       $("#critereon-max").html(max_value);
       $("#dialog").dialog('open');
+      $(this).val(0)
+    }
+
+    if (this_value < 0){
       $(this).val(0)
     }
   });

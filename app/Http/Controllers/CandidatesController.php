@@ -47,7 +47,7 @@ class CandidatesController extends Controller
     public function edit($id){
       $candidate = Candidate::find($id);
       $params = array(
-        'action' => 'Edit',
+        'action' => 'Update',
         'form_action' => route('admin.candidates.id.update', array('id'=>$candidate->id)),
         'candidate' => $candidate
       );

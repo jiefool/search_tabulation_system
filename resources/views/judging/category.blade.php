@@ -10,16 +10,14 @@
     <div class="col-md-6">
       <div class="card">
         <div class="card-header" data-background-color="green">
-          <b>{{$candidate->full_name()}}</b>
+          <b>{{$candidate->candidate_number}}. {{$candidate->full_name()}}</b>
         </div>
         <div class="card-body">
           <div class="row">
             <div class="col-md-6">
               <img src="{{asset('images')}}/{{$candidate->image_url}}" width="100%" />
               <div class="list-group">
-                  <div class="list-group-item"><b>Age:</b> {{$candidate->age}}</div>
                   <div class="list-group-item"><b>Address:</b> {{$candidate->address}}</div>
-                  <div class="list-group-item"><b>Vital Statistics:</b> {{$candidate->vital_statistics}}</div>
               </div>
             </div>
             <div class="col-md-6">
@@ -32,7 +30,7 @@
                         <div class="input-group-prepend">
                           <span class="input-group-text" id="basic-addon1"><b>{{$critereon->name}}({{$critereon->weight}}%):</b></span>
                         </div>
-                        <input type="number" pattern="[0-9]*" inputmode="numeric" max="{{$critereon->weight}}" class="form-control critereon-input" placeholder="0" aria-label="" aria-describedby="basic-addon1" name="weight_{{$critereon->id}}" value="{{$cjcw[$candidate->id][Auth::user()->id][$category->id][$critereon->id]}}">
+                        <input type="number" inputmode="numeric" max="{{$critereon->weight}}" class="form-control critereon-input" placeholder="0" aria-label="" aria-describedby="basic-addon1" name="weight_{{$critereon->id}}" value="{{$cjcw[$candidate->id][Auth::user()->id][$category->id][$critereon->id]}}">
                     </div>
                   </div>
                 @endforeach

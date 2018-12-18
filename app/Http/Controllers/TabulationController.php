@@ -15,7 +15,7 @@ class TabulationController extends Controller
   public function index(){
     $categories = Category::all();
     $judges = User::where('is_judge', '=', true)->get();
-    $candidates = Candidate::all();
+    $candidates = Candidate::orderBy('candidate_number', 'asc')->get();
 
     $cjc_score = array();
     foreach($candidates as $candidate){
@@ -39,6 +39,15 @@ class TabulationController extends Controller
       $cjc_total_average[$candidate->id] = round($this->get_average($cjc_total[$candidate->id]),2);
     }
 
+    $canditate_category_total = array();
+    foreach($candidates as $candidate){
+      foreach($categories as $category){
+        $canditate_category_total[$candidate->id][$category->id] = round(($this->get_candidate_category_total($candidate->id, $category->id) * ($category->weight/100))/count($judges),2);
+      }
+    }
+
+
+
     return view('admin.tabulation.index', 
       array(
         'categories'=>$categories,
@@ -46,7 +55,8 @@ class TabulationController extends Controller
         'candidates'=>$candidates,
         'cjc_score'=>$cjc_score,
         'cjc_total'=>$cjc_total,
-        'cjc_total_average'=>$cjc_total_average
+        'cjc_total_average'=>$cjc_total_average,
+        'canditate_category_total'=>$canditate_category_total
       ));
   }
 
@@ -80,6 +90,19 @@ class TabulationController extends Controller
     }
 
     return $score/count($category_scores);
+  }
+
+  public function get_candidate_category_total($candidate_id, $category_id){
+    $results = CategoryJudgeCriteriaWeight::where('candidate_id', '=', $candidate_id)
+                                        ->where('category_id', '=', $category_id)
+                                        ->get();
+
+    $total = 0;                                    
+    foreach($results as $r){
+      $total = $total + $r->weight;
+    }
+
+    return $total;
   }
 
   

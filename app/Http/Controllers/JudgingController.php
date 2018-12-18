@@ -17,7 +17,7 @@ class JudgingController extends Controller
   }
 
   public function judging_category($id){
-    $candidates = Candidate::all();
+    $candidates = Candidate::orderBy('candidate_number', 'asc')->get();
     $category = Category::find($id);
     $cjcw = array();
     foreach($candidates as $candidate){

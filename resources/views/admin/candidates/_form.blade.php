@@ -75,7 +75,7 @@
                                     <div class="col-md-8 offset-md-4">
                                         <a href="{{ route('admin.candidates.index') }}" class="btn btn-primary">Back</a>
                                         <button type="submit" class="btn btn-primary">
-                                           {{$action}} Candidates
+                                           {{$action}} Candidate
                                         </button>
                                     </div>
                             </div>
